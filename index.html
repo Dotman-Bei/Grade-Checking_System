@@ -85,7 +85,10 @@
             var failureSound = new Audio("Olodo.mp3")
             var successSound = new Audio("clap.wav")
            
-            if (input.value >= 70 && input.value <= 100){
+            if (input.value === ""){
+                alert("Enter valid number")
+            }
+            else if (input.value >= 70 && input.value <= 100){
                 resultE1.innerHTML = ("A" + " -EXCELLENT🎉")
                 successSound.play();
             }else if (input.value >= 60 && input.value <= 70){
@@ -102,6 +105,7 @@
             }else {
                 resultE1.innerHTML = ("1-100 Limit😡")
             }
+
         }
     </script>
 </body>
