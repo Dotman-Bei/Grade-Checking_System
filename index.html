@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="StudyPortals-Logo-300x70px_Color_Transparent-Background.png" type="image/x-icon">
+</head>
+
+  <style>
+    body{
+        background-color: rgb(59, 42, 42);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .main{
+        background-color: rgb(199, 198, 158);
+        height: 300px;
+        border-radius: 20px;
+        margin-top: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px;
+        text-align: center;
+        border: 5px solid white;
+    }
+    .main button{
+        margin-top: 10px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    .main input{
+        border: 1px solid black;
+        margin-top: 10px;
+        font-weight: bold;
+        height: 50px;
+    }
+    .main h1{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    .main h2{
+        margin-top: 10px;
+    }
+    .main div{
+        background-color: white;
+        margin-top: 20px;
+        font-weight: bold;
+        border: 3px solid brown;
+        height: 50px;
+        width: 150px;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+</style>
+<body>
+    
+        <div class="main">
+            <h1>GRADE CHECK SYSTEM</h1>
+            <marquee behavior="" direction=""><h2>Check Your Grade👀</h2></marquee>
+            <input type="number" placeholder="Type in the score" id="input">
+            <button onclick="checkGrade()">Grade</button>
+            <div id="result"></div>
+        </div>
+
+    <script>
+          var resultE1 = document.getElementById('result')
+          var inputE1 = document.getElementById('input')
+
+          inputE1.addEventListener("keydown", function(key) {
+            if (key.code === "Enter") {
+                checkGrade()
+            }
+        })
+
+        function checkGrade(){
+
+
+            var failureSound = new Audio("Olodo.mp3")
+            var successSound = new Audio("clap.wav")
+           
+            if (input.value >= 70 && input.value <= 100){
+                resultE1.innerHTML = ("A" + " -EXCELLENT🎉")
+                successSound.play();
+            }else if (input.value >= 60 && input.value <= 70){
+                resultE1.innerHTML = ("B" + " -VERY GOOD👏")
+            }else if (input.value >= 50 && input.value <= 60){
+                resultE1.innerHTML = ("C" +  " -GOOD👍")
+            }else if (input.value >= 45 && input.value <= 50){
+                resultE1.innerHTML = ("D"+ " -POOR🤒")
+            }else if (input.value >= 40 && input.value <= 45){
+                resultE1.innerHTML = ("E" + " -VERY POOR🙅‍♂️")
+            }else if (input.value >= 0 && input.value < 40){
+                resultE1.innerHTML = ("F" + " -FAIL🙆‍♀️")
+                failureSound.play();
+            }else {
+                resultE1.innerHTML = ("1-100 Limit😡")
+            }
+        }
+    </script>
+</body>
+</html>
